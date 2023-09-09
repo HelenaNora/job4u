@@ -7,8 +7,8 @@ export default function NavLink({ active = false, className = '', children, ...p
             className={
                 'inline-flex items-center px-1 pt-1 border-b-2 text-sm text-[#123C69] font-medium leading-5 transition duration-150 ease-in-out focus:outline-none ' +
                 (active
-                    ? 'border-[#AC3B61] text-[#BAB2B5] focus:border-[#AC3B61] '
-                    : 'border-transparent text-[#123C69] hover:text-[#AC3B61] hover:border-[#AC3B61] focus:text-text-[#123C69] focus:border-[#123C69]') +
+                    ? 'border-indigo-400 text-[#BAB2B5]  focus:text-[#AC3B61] focus:bg-[#EDC7B7] focus:border-[#AC3B61]'
+                    : 'border-transparent text-[#123C69] hover:text-[#AC3B61] hover:border-[#AC3B61] focus:text-[#123C69] focus:border-[#123C69]') +
                 className
             }
         >

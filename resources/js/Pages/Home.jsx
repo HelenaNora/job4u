@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUserGroup  } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faBriefcase, faSearch, faUserGroup  } from '@fortawesome/free-solid-svg-icons';
 import Nav from '@/Layouts/Nav';
 import { Link, Head } from '@inertiajs/react';
 import home from './img/home.png';
@@ -53,9 +53,7 @@ export default function Home({auth}) {
         //         </div>
         //     </nav>
         // </>
-        <Nav
-            // header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Home</h2>}
-        >
+        <Nav>
             <Head title="Home" />
 
             <div className="py-12">
@@ -100,12 +98,30 @@ export default function Home({auth}) {
                                     <div className='text-[#123C69] rounded-md p-8 transition-all duration-500 ease-in-out hover:text-white  hover:bg-[#AC3B61] hover:drop-shadow-2xl'>
                                         <FontAwesomeIcon icon={faSearch} className='text-[1.7rem]'></FontAwesomeIcon>
                                         <h3 className='text-[1.5rem] my-10'>Are you seeking a job?</h3>
-                                        <button>Click Here</button>
+                                        <Link href={route('dashboard')}>
+                                            Click Here
+                                        </Link>
                                     </div>
                                     <div className='text-[#AC3B61] rounded-md p-8 transition-all duration-500 ease-in-out hover:text-white  hover:bg-[#123C69] hover:drop-shadow-2xl'>
+                                        <FontAwesomeIcon icon={faBriefcase} className='text-[1.7rem]'></FontAwesomeIcon>
+                                        <h3 className='text-[1.5rem] my-10'>Wanna Show Your Skill?</h3>
+                                        <Link href={route('dashboard')}>
+                                            Show Skill
+                                        </Link>
+                                    </div>
+                                    <div className='text-[#AC3B61] rounded-md p-8 transition-all duration-500 ease-in-out hover:text-white  hover:bg-[#123C69] hover:drop-shadow-2xl'>
+                                        <FontAwesomeIcon icon={faFile} className='text-[1.7rem]'></FontAwesomeIcon>
+                                        <h3 className='text-[1.5rem] my-10'>Are you hiring jobs?</h3>
+                                        <Link href={route('dashboard')}>
+                                            Hiring
+                                        </Link>
+                                    </div>
+                                    <div className='text-[#123C69] rounded-md p-8 transition-all duration-500 ease-in-out hover:text-white  hover:bg-[#AC3B61] hover:drop-shadow-2xl'>
                                         <FontAwesomeIcon icon={faUserGroup} className='text-[1.7rem]'></FontAwesomeIcon>
                                         <h3 className='text-[1.5rem] my-10'>Are you finding employees?</h3>
-                                        <button>Click Here</button>
+                                        <Link href={route('dashboard')}>
+                                            Click Here
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +150,7 @@ export default function Home({auth}) {
                                         <div className='mt-5 ms-5 p-5'>
                                             <img src={ contact} />
                                         </div>
-                                        <div className='text-start rounded-md  p-16 m-auto mt-10 shadow-inner shadow-[#123C69] transition-all duration-200 hover:bg-[#EDC7B7]  hover:shadow-[#EDC7B7]'>
+                                        <div className='text-start rounded-md  p-16 m-auto mt-10 shadow-inner shadow-[#123C69] transition-all duration-200 hover:bg-[#EEE2DC]  hover:shadow-[#EEE2DC]'>
                                             <p className=''><span className='text-[1.2rem] text-[#123C69] me-5 '>Email</span>:<span className='text-[#a03257]  ms-5'>jou4u.mm.com</span></p>
                                             <p className='my-10'><span className='text-[1.1rem] text-[#123C69] me-5'>Phone</span>:<span className='text-[#a03257]  ms-5'>+9599567623</span></p>
                                             <p className='my-10'><span className='text-[1rem] text-[#123C69] me-5'>Address</span>:<span className='text-[#a03257]  ms-5'>Yangon,Myanmar</span></p>

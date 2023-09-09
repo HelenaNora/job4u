@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
+import { Link } from '@inertiajs/react';
 
 
 export default function Nav({ header, children }) {
@@ -16,9 +17,28 @@ export default function Nav({ header, children }) {
                                 <h3 className='text-[#123C69] text-[1.7rem]'>Job4u</h3>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <div className="hidden space-x-8 md:ms-12  sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('home')} active={route().current('home')}>
                                     Home
+                                </NavLink>
+                                <NavLink href={route('jobs')} active={route().current('jobs')}>
+                                    Jobs
+                                </NavLink>
+                                <NavLink href={route('jobs')} active={route().current('jobs')}>
+                                    Employees
+                                </NavLink>
+                                <NavLink href={route('jobs')} active={route().current('jobs')}>
+                                    Contact-us
+                                </NavLink>
+                            </div>
+
+                            <div className='text-[0.9rem] text-[#123C69] md:ms-96 hidden space-x-8 sm:-my-px sm:ml-10 sm:flex'>
+                                <NavLink href={route('login')} active={route().current('login')}>
+                                    Login
+                                </NavLink>
+
+                                <NavLink href={route('register')} active={route().current('register')}>
+                                    Register
                                 </NavLink>
                             </div>
                         </div>
@@ -54,6 +74,22 @@ export default function Nav({ header, children }) {
                         <ResponsiveNavLink href={route('home')} active={route().current('home')}>
                             Home
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
+                            Jobs
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
+                            Employees
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
+                            Contact-us
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('login')} active={route().current('login')}>
+                            Login
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink href={route('register')} active={route().current('register')}>
+                            Register
+                        </ResponsiveNavLink>
                     </div>
                 </div>
             </nav>
@@ -66,9 +102,9 @@ export default function Nav({ header, children }) {
 
             <main>{children}</main>
 
-            <fooder className='text-center'>
+            <div className='text-center'>
                 <p className='bg-[#123C69] text-white p-10'>&copy;Copyright All Rights Reserved.</p>
-            </fooder>
+            </div>
         </div>
     );
 }
