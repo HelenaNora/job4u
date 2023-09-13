@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/react';
 
 
 export default function Nav({ header, children }) {
@@ -21,14 +20,14 @@ export default function Nav({ header, children }) {
                                 <NavLink href={route('home')} active={route().current('home')}>
                                     Home
                                 </NavLink>
-                                <NavLink href={route('jobs')} active={route().current('jobs')}>
+                                <NavLink href={route('findingJob')} active={route().current('findingJob')}>
                                     Jobs
                                 </NavLink>
-                                <NavLink href={route('jobs')} active={route().current('jobs')}>
+                                <NavLink href={route('findingJob')} active={route().current('findingJob')}>
                                     Employees
                                 </NavLink>
-                                <NavLink href={route('jobs')} active={route().current('jobs')}>
-                                    Contact-us
+                                <NavLink href={route('help_center')} active={route().current('help_center')}>
+                                    Help Center
                                 </NavLink>
                             </div>
 
@@ -74,14 +73,14 @@ export default function Nav({ header, children }) {
                         <ResponsiveNavLink href={route('home')} active={route().current('home')}>
                             Home
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
+                        <ResponsiveNavLink href={route('findingJob')} active={route().current('findingJob')}>
                             Jobs
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
+                        <ResponsiveNavLink href={route('findingJob')} active={route().current('findingJob')}>
                             Employees
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('jobs')} active={route().current('jobs')}>
-                            Contact-us
+                        <ResponsiveNavLink href={route('help_center')} active={route().current('help_center')}>
+                            Help Center
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('login')} active={route().current('login')}>
                             Login

@@ -7,52 +7,6 @@ import contact from './img/contact-us.png';
 
 export default function Home({auth}) {
     return (
-        // <>
-        //     <Head title="Home" />
-        //     <nav className='flex justify-around items-center'>
-        //         <h3>Job4u</h3>
-        //         <div className=''>
-        //             <NavLink href={route('home')} active={route().current('home')} className='mx-2'>
-        //                 Home
-        //             </NavLink>
-        //             <NavLink href={route('home')} active={route().current('home')} className='mx-2'>
-        //                 Home
-        //             </NavLink>
-        //             <NavLink href={route('home')} active={route().current('home')} className='mx-2'>
-        //                 Home
-        //             </NavLink>
-        //             <NavLink href={route('home')} active={route().current('home')} className='mx-2'>
-        //                 Home
-        //             </NavLink>
-        //         </div>
-        //         <div className="sm:top-0 sm:right-0 p-6 text-right">
-        //             {auth.user ? (
-        //                 <Link
-        //                     href={route('dashboard')}
-        //                     className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-        //                 >
-        //                     Dashboard
-        //                 </Link>
-        //             ) : (
-        //                 <>
-        //                     <Link
-        //                         href={route('login')}
-        //                         className="font-semibold text-[15px] text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-        //                     >
-        //                         Log in
-        //                     </Link>
-
-        //                     <Link
-        //                         href={route('register')}
-        //                         className="ml-4 font-semibold text-[15px] text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-        //                     >
-        //                         Register
-        //                     </Link>
-        //                 </>
-        //             )}
-        //         </div>
-        //     </nav>
-        // </>
         <Nav>
             <Head title="Home" />
 
@@ -155,7 +109,9 @@ export default function Home({auth}) {
                                             <p className='my-10'><span className='text-[1.1rem] text-[#123C69] me-5'>Phone</span>:<span className='text-[#a03257]  ms-5'>+9599567623</span></p>
                                             <p className='my-10'><span className='text-[1rem] text-[#123C69] me-5'>Address</span>:<span className='text-[#a03257]  ms-5'>Yangon,Myanmar</span></p>
                                             <div className='text-end'>
-                                                <button className='text-[#a03257]'>Contact Us</button>
+                                                <Link href={route('help_center')}  className='text-[#a03257]'>
+                                                    Contact Us
+                                                </Link>
                                             </div>
                                     </div>
                                     </div>

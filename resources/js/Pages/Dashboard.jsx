@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import {Link, Head } from '@inertiajs/react';
 
 export default function Dashboard({ auth }) {
     return (
@@ -12,7 +12,9 @@ export default function Dashboard({ auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="overflow-hidden  sm:rounded-lg">
                         <div className="p-6 text-[#623722] text-center">
-                            <button className='me-5 transition-all duration-150 hover:text-[#123C69]'>Post as Company</button>
+                            <Link href={route('post.index')} className='me-5 transition-all duration-150 hover:text-[#123C69]'>
+                                Post as Company
+                            </Link>
                             <button className='transition-all duration-150 hover:text-[#123C69]'>Post as You</button>
                         </div>
                     </div>
