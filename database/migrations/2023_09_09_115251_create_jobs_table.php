@@ -17,8 +17,11 @@ return new class extends Migration
             $table->binary('logo');
             $table->string('company_name');
             $table->integer('phone');
+            $table->char('email');
             $table->longText('address');
             $table->char('position');
+            $table->string('gender');
+            $table->integer('number');
             $table->char('degree');
             $table->char('experience');
             $table->integer('salary');

@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobEditController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -48,8 +49,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('post',JobController::class)
-->only(['index','store'])
+->only(['index','store','update'])
 ->middleware(['auth','verified']);
+
+
+// Route::get('/edit', function () {
+//     return Inertia::render('JobEdit');
+// })->name('edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

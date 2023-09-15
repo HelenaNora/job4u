@@ -1,40 +1,38 @@
-import React from 'react';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import React, { useState } from 'react';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
-import { useForm, Head } from '@inertiajs/react';
-import Job from '@/Components/Job';
+import { useForm, usePage } from '@inertiajs/react';
+export default function JobEdit({ job }) {
+    const { auth } = usePage().props;
 
-export default function Index({ auth ,jobs}) {
-    const { data, setData, post, processing, reset, errors } = useForm({
-        logo:'',
-        company_name: '',
-        phone: '',
-        email:'',
-        address: '',
-        position: '',
-        gender: '',
-        number:'',
-        degree:'',
-        experience: '',
-        salary: '',
-        job_type: '',
-        details:'',
+    const [editing, setEditing] = useState(false);
+
+    const { data, setData, patch, clearErrors, reset, errors } = useForm({
+        logo:job.logo,
+        company_name: job.company_name,
+        phone: job.phone,
+        email:job.email,
+        address: job.address,
+        position: job.position,
+        gender: job.gender,
+        number:job.number,
+        degree:job.degree,
+        experience: job.experience,
+        salary: job.salary,
+        job_type: job.job_type,
+        details:job.details,
     });
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('post.store'), { onSuccess: () => reset() });
+        patch(route('post.update', job.id), { onSuccess: () => setEditing(false) });
     };
 
     return (
-        <AuthenticatedLayout user={auth.user}>
-            <Head title="Posts" />
-
-            <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-                <h1 className='text-center text-xl uppercase'>Find Employees</h1>
-                <form onSubmit={submit}>
-                    <div>
+        <>
+            {editing
+                    ? <form onSubmit={submit}>
+                        <div>
                         <label className='text-[0.8rem] text-[#123C69]'>Company's Logo</label>
                         <input type="file" name={data.logo} id="" onChange={e => setData('logo', e.target.value)} className="block w-full  focus:border-indigo-300 rounded-md"/>
                         <InputError message={errors.logo} className="mt-2" />
@@ -108,21 +106,24 @@ export default function Index({ auth ,jobs}) {
                         ></textarea>
                         <InputError message={errors.details} className="mt-2" />
                     </div>
+                        <div className="space-x-2">
+                            <PrimaryButton className="mt-4">Save</PrimaryButton>
+                            <button className="mt-4" onClick={() => { setEditing(false); reset(); clearErrors(); }}>Cancel</button>
+                        </div>
+                    </form>
+                :
+                <div>
+                    <p className="mt-4 text-lg text-gray-900">{job.logo}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.company_name}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.phone}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.email}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.message}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.message}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.message}</p>
+                    <p className="mt-4 text-lg text-gray-900">{job.message}</p>
+                </div>
+                }
+        </>
+    )
 
-                    <div className='text-end'>
-                        <PrimaryButton className="mt-4" disabled={processing}>Post</PrimaryButton>
-                   </div>
-
-                </form>
-
-
-            </div>
-            <div className="mt-6  grid md:grid-cols-3 gap-4 sm:grid-cols-1  shadow-sm rounded-lg divide-y">
-                {jobs.map(job =>
-                    <Job key={job.id} job={job}/>
-                )}
-            </div>
-
-        </AuthenticatedLayout>
-    );
 }

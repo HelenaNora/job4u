@@ -1,20 +1,65 @@
 import React from 'react';
-export default function Job({ job }) {
+import Dropdown from '@/Components/Dropdown';
+import { Link, Head } from '@inertiajs/react';
+export default function Job({ auth,job }) {
 
     return (
-        <div className="p-6 flex space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 -scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            <div className="flex-1">
-                <div className="flex justify-between items-center">
-                    <div>
-                        <span className="text-gray-800">{job.user.name}</span>
-                        <small className="ml-2 text-sm text-gray-600">{new Date(job.created_at).toLocaleString()}</small>
+                <div className="p-6">
+                    <div className='text-[#123C69] bg-[#e5c5d0] rounded-md p-6'>
+                        <div>
+                            <h1 className='uppercase'>We are</h1>
+                                <Dropdown>
+                                    <Dropdown.Trigger>
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                            </svg>
+                                        </button>
+                                    </Dropdown.Trigger>
+                                    <Dropdown.Content>
+                                        <Link   className="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 transition duration-150 ease-in-out">
+                                            Edit
+                                        </Link>
+                                    </Dropdown.Content>
+                                </Dropdown>
+                        </div>
+                        <span className='text-5xl uppercase border-b-4 border-b-[#123C69]'>Hiring!</span>
+                        <p className='text-sm uppercase my-5'>{job.position}</p>
+                        <span className='text-[.8rem] uppercase'>{ job.gender} ({job.number})POST</span>
+                       <div className='text-sm text-right mt-6'>
+                            <p className='my-3'><span>Location</span>:<span>{job.address}</span></p>
+                            <p className='my-3'>Phone - {job.phone}</p>
+                            <p className='my-3'>Email - {job.email}</p>
+                        </div>
+
+                        <div className='text-right'>
+                            <button className=''>See More</button>
+                        </div>
+
                     </div>
                 </div>
-                <p className="mt-4 text-lg text-gray-900">{job.company_name}</p>
-            </div>
-        </div>
+
+    // <div className="p-6 flex space-x-2">
+    //     <div className="flex-1">
+    //         <div className="flex justify-between items-center">
+    //             <div className="p-6 grid md:grid-cols-3 sm:grid-cols-1 gap-4">
+    //                 <div className='text-[#123C69] bg-[#e5c5d0] rounded-md p-6'>
+    //                     <h1 className='uppercase'>We are</h1>
+    //                     <span className='text-5xl uppercase border-b-4 border-b-[#123C69]'>Hiring!</span>
+    //                     <p className='text-sm uppercase my-5'>{job.position}</p>
+    //                     <span className='text-[.8rem] uppercase'>{ job.gender} ({job.number})POST</span>
+    //                    <div className='text-sm text-right mt-6'>
+    //                         <p className='my-3'><span>Location</span>:<span>{job.address}</span></p>
+    //                         <p className='my-3'>Phone - {job.phone}</p>
+    //                         <p className='my-3'>Email - {job.email}</p>
+    //                     </div>
+    //                     <div className='text-right'>
+    //                         <button className=''>See More</button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>
     );
 }
