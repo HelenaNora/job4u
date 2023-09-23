@@ -20,10 +20,10 @@ export default function Nav({ header, children }) {
                                 <NavLink href={route('home')} active={route().current('home')}>
                                     Home
                                 </NavLink>
-                                <NavLink href={route('findingJob')} active={route().current('findingJob')}>
+                                <NavLink href={route('finding-Job.index')} active={route().current('finding-Job.index')}>
                                     Jobs
                                 </NavLink>
-                                <NavLink href={route('findingJob')} active={route().current('findingJob')}>
+                                <NavLink href={route('home')} active={route().current('home')}>
                                     Employees
                                 </NavLink>
                                 <NavLink href={route('help_center')} active={route().current('help_center')}>
@@ -73,10 +73,10 @@ export default function Nav({ header, children }) {
                         <ResponsiveNavLink href={route('home')} active={route().current('home')}>
                             Home
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('findingJob')} active={route().current('findingJob')}>
+                        <ResponsiveNavLink href={route('finding-Job.index')} active={route().current('finding-Job.index')}>
                             Jobs
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('findingJob')} active={route().current('findingJob')}>
+                        <ResponsiveNavLink href={route('home')} active={route().current('home')}>
                             Employees
                         </ResponsiveNavLink>
                         <ResponsiveNavLink href={route('help_center')} active={route().current('help_center')}>

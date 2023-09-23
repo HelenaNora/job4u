@@ -1,4 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import {Link, Head } from '@inertiajs/react';
 
 export default function Dashboard({ auth }) {
@@ -16,6 +18,13 @@ export default function Dashboard({ auth }) {
                                 Post as Company
                             </Link>
                             <button className='transition-all duration-150 hover:text-[#123C69]'>Post as You</button>
+                        </div>
+                        <div className='text-center mt-20'>
+
+                            <Link href={route('home')} className='me-5 transition-all duration-150 hover:text-[#123C69]'>
+                                <FontAwesomeIcon icon={faArrowLeft} className='text-[1rem] me-2'></FontAwesomeIcon>
+                            Go Back Home
+                            </Link>
                         </div>
                     </div>
                 </div>

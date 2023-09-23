@@ -4,8 +4,9 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\JobEditController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FindingJobController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,25 @@ Route::get('/',function(){
 
     ]);
 })->name('home');
-Route::get('/findingJob',function(){
-    return Inertia::render('FindingJob',[
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-})->name('findingJob');
+// Route::get('/findingJob', function () {
+//     return Inertia::render('FindingJob');
+// })->middleware(['auth', 'verified'])->name('findingJob');
+
+Route::resource('finding-Job',FindingJobController::class)
+->only(['index'])
+->middleware(['auth','verified']);
+
+// Route::get('/findingJob', 'FindingJobController@index')->name('findingJob');
+
+// Route::get('/findingJob', [FindingJobController::class, 'index'])->name('findingJob.index');
+
+// Route::get('/findingJob', 'FindingJobController@index')->name('findingJob');
+// Route::namespace('App\Http\Controllers')->group(function () {
+//     Route::get('/findingJob', 'FindingJobController@index');
+// });
+
+
+
 
 Route::get('/help_center',function(){
     return Inertia::render('HelpCenter',[

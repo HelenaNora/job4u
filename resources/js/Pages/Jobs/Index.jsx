@@ -3,11 +3,10 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useForm, Head } from '@inertiajs/react';
-import Job from '@/Components/Job';
 
-export default function Index({ auth ,jobs}) {
+
+export default function Index({ auth }) {
     const { data, setData, post, processing, reset, errors } = useForm({
-        logo:'',
         company_name: '',
         phone: '',
         email:'',
@@ -34,11 +33,6 @@ export default function Index({ auth ,jobs}) {
             <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
                 <h1 className='text-center text-xl uppercase'>Find Employees</h1>
                 <form onSubmit={submit}>
-                    <div>
-                        <label className='text-[0.8rem] text-[#123C69]'>Company's Logo</label>
-                        <input type="file" name={data.logo} id="" onChange={e => setData('logo', e.target.value)} className="block w-full  focus:border-indigo-300 rounded-md"/>
-                        <InputError message={errors.logo} className="mt-2" />
-                    </div>
                     <div>
                         <label className='text-[0.8rem] text-[#123C69]'>Company's Name</label>
                         <input type="text" name={data.company_name} id="" onChange={e => setData('company_name', e.target.value)} className="block w-full  focus:border-indigo-300 rounded-md"/>
@@ -116,11 +110,6 @@ export default function Index({ auth ,jobs}) {
                 </form>
 
 
-            </div>
-            <div className="mt-6  grid md:grid-cols-3 gap-4 sm:grid-cols-1  shadow-sm rounded-lg divide-y">
-                {jobs.map(job =>
-                    <Job key={job.id} job={job}/>
-                )}
             </div>
 
         </AuthenticatedLayout>

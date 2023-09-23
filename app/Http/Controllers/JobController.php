@@ -17,7 +17,7 @@ class JobController extends Controller
     public function index():Response
     {
         return Inertia::render('Jobs/Index',[
-            'jobs'=>Job::with('user:id,name')->latest()->get(),
+            // 'jobs'=>Job::with('user:id,name')->latest()->get(),
         ]);
 
     }
@@ -35,12 +35,7 @@ class JobController extends Controller
      */
     public function store(Request $request):RedirectResponse
     {
-        // $file=$request->file('logo');
-        // $fileName=uniqid().'_'.$file->logo();
-        // dd($file);
-        // dd($request->all());
         $validated = $request->validate([
-            'logo'=>'required',
             'company_name'=>'required',
             'phone'=>'required',
             'email'=>'required',
@@ -79,9 +74,30 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request, Job $job): RedirectResponse
     {
-        //
+        dd($request->user()->id, $job);
+       $this->authorize('update', $job);
+
+
+        $validated = $request->validate([
+            'company_name'=>'required',
+            'phone'=>'required',
+            'email'=>'required',
+            'address'=>'required',
+            'position'=>'required',
+            'gender'=>'required',
+            'number'=>'required',
+            'degree'=>'required',
+            'experience'=>'required',
+            'salary'=>'required',
+            'job_type'=>'required',
+            'details'=>'required',
+        ]);
+
+        $job->update($validated);
+
+        return redirect(route('post.index'));
     }
 
     /**
@@ -89,6 +105,10 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        // $this->authorize('delete', $job);
+
+        // $job->delete();
+
+        // return redirect(route('post.index'));
     }
 }
